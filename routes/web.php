@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InscriptionController;
 
@@ -28,6 +29,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard-admin', function () {
             return view('Admin-dashboard');
         })->name('admin.dashboard'); 
+        Route::get('/Utilisateurs', [UserController::class, 'index'])->name('Utilisateurs');
+ // Route pour afficher le formulaire de création d'un nouvel utilisateur
+
+// Route pour enregistrer un nouvel utilisateur depuis le formulaire de création
+
+// Route pour afficher les détails d'un utilisateur
+Route::get('/utilisateurs/{id}', [UserController::class, 'show'])->name('users.show');
+
+Route::get('/utilisateurs/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+
+// Route pour mettre à jour un utilisateur depuis le formulaire d'édition
+
+// Route pour supprimer un utilisateur
+Route::delete('/utilisateurs/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
     });
 
     // Route pour l'utilisateur
