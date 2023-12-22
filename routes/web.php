@@ -61,3 +61,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+require __DIR__.'/all_generate_routes.php';
