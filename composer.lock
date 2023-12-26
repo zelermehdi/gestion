@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc2a5b1a2c2b64c5fc4ca627400ac851",
+    "content-hash": "c49b6672249135e15ad86cb7eca3db04",
     "packages": [
         {
             "name": "baiss/all-generator",
@@ -2225,6 +2225,46 @@
                 }
             ],
             "time": "2023-10-17T14:13:20+00:00"
+        },
+        {
+            "name": "m3m0r7/nfc-for-php",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/m3m0r7/nfc-for-php.git",
+                "reference": "fb6fddac067cf6561e42187038fa33c0b3176f2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/m3m0r7/nfc-for-php/zipball/fb6fddac067cf6561e42187038fa33c0b3176f2d",
+                "reference": "fb6fddac067cf6561e42187038fa33c0b3176f2d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ffi": "*",
+                "php": ">=7.4|>=8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NFC\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "memory"
+                }
+            ],
+            "description": "NFC Reader with the libnfc written in PHP",
+            "support": {
+                "issues": "https://github.com/m3m0r7/nfc-for-php/issues",
+                "source": "https://github.com/m3m0r7/nfc-for-php/tree/0.0.2"
+            },
+            "time": "2021-10-09T09:10:01+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -10021,5 +10061,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

@@ -1,6 +1,5 @@
 <?php
 use App\Models\User;
-use App\Models\Locataire;
 $users = User::all();
 ?>
 

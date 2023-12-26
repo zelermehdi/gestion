@@ -15,6 +15,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('locataires', LocataireController::class);//->middleware(['auth', 'verified'])
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::resource('locataires', LocataireController::class)->only(['index']);
+    Route::resource('locataires', LocataireController::class)->only(['store']);
+
+
+});
+
 
 Route::get('locataires/create', [LocataireController::class, 'create'])->name('locataires.create');
+
+
+
+
+Route::resource('locations', LocationController::class);//->middleware(['auth', 'verified'])
+
+
+
+Route::resource('propertys', propertyController::class);//->middleware(['auth', 'verified'])
+Route::resource('bailtypes', BailTypeController::class);//->middleware(['auth', 'verified'])

@@ -28,4 +28,8 @@ class Locataire extends Model {
         return $this->belongsTo(User::class);
     }
 
+
+	public function locations() {
+        return $this->hasMany(Locataire::class);
+    }
 }

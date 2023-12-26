@@ -8,19 +8,18 @@
     <!-- Tailwind CSS via CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-200">
 
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             @include('partials.navbar')
         </div>
     </header>
-
     <div class="container mx-auto p-8 bg-white shadow-lg rounded-lg mt-8">
-        <h1 class="text-4xl font-extrabold mb-8 text-gray-800">Liste des Utilisateurs</h1>
+        <h1 class="text-5xl font-bold mb-8 text-gray-900">Liste des Utilisateurs</h1>
 
-        <table class="min-w-full bg-white border border-gray-200 rounded-md overflow-hidden">
-            <thead class="bg-gray-100">
+        <table class="min-w-full bg-white border border-gray-300 rounded-md overflow-hidden">
+            <thead class="bg-blue-100">
                 <tr>
                     <th class="py-3 px-6 text-left">Nom</th>
                     <th class="py-3 px-6 text-left">Prénom</th>
