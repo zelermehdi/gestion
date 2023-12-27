@@ -22,10 +22,12 @@
                         <th>Ville</th>
                         <th>Pays</th>
                         <th>Nombre de chambres</th>
+                        <th>Code postal</th>
                         <th>Taille (m²)</th>
                         <th>Meublée</th>
                         <th>Utilisateur</th>
                         <th>Action</th>
+                    
                     </tr>
                 </thead>
                 <tbody>
@@ -37,6 +39,7 @@
                             <td>{{ $property->city }}</td>
                             <td>{{ $property->country }}</td>
                             <td>{{ $property->nb_rooms }}</td>
+                            <td>{{ $property->postcode }}</td>
                             <td>{{ $property->size }}</td>
                             <td>{{ $property->furnished ? 'Yes' : 'No' }}</td>
                             <td> {{ optional($property->User)->last_name }} </td>
@@ -45,7 +48,7 @@
 
                             <td>
                                 <a href="#" class="mx-1 text-primary"> <i class="fa fa-eye"></i> </a>
-                                <a href="{{ route('propertys.edit', $property?->id) }}" class="mx-1 text-secondary"> <i class="fa fa-pencil"></i> </a>
+                                <a href="{{ route('propertys.update', $property?->id) }}" class="mx-1 text-secondary"> <i class="fa fa-pencil"></i> </a>
                                 <a href="#" class="mx-1 text-danger"> <i class="fa fa-trash"></i> </a>
                             </td>
 

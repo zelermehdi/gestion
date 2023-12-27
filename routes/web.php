@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InscriptionController;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,3 +65,11 @@ require __DIR__.'/auth.php';
 
 
 require __DIR__.'/all_generate_routes.php';
+
+Route::get('/test-email', function () {
+    Mail::raw('Test email', function ($message) {
+        $message->to('your-email@example.com')->subject('Test Subject');
+    });
+
+    return 'Email sent successfully!';
+});

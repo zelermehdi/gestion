@@ -34,3 +34,4 @@ Route::resource('locations', LocationController::class);//->middleware(['auth', 
 
 Route::resource('propertys', propertyController::class);//->middleware(['auth', 'verified'])
 Route::resource('bailtypes', BailTypeController::class);//->middleware(['auth', 'verified'])
+Route::patch('/propertys/{property}', [PropertyController::class, 'update'])->name('propertys.update');
