@@ -60,7 +60,7 @@ $attributes=Attribute::all();
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="property_type_id" class="form-label">Property Type ID:</label>
+                        <label for="property_type_id" class="form-label">Type de proprieté</label>
                         <select id="property_type_id" class="form-control" name="property_type_id" required>
                             @foreach ($types as $typ)
                                 <option value="{{ $typ->id }}">{{ $typ->type }} </option>
@@ -69,7 +69,7 @@ $attributes=Attribute::all();
                     </div>
 
                     <div class="mb-3">
-                        <label for="postcode" class="form-label">Postcode:</label>
+                        <label for="postcode" class="form-label">code postal</label>
                         <input type="text" name="postcode" class="form-control"value="{{ $property->postcode }}" required>
                     </div>
                 </div>

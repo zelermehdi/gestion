@@ -58,9 +58,16 @@ $locataires = Locataire::paginate(10);
 							<td> {{ $locataire->idcard_number }} </td>
 
                             <td>
-                                <a href="#" class="mx-1 text-primary"> <i class="fa fa-eye"></i> </a>
-                                {{-- <a href="{{ route('locataires.edit', $locataire?->id) }}" class="mx-1 text-secondary"> <i class="fa fa-pencil"></i> </a> --}}
-                                <a href="#" class="mx-1 text-danger"> <i class="fa fa-trash"></i> </a>
+                                <a href="{{ route('locataires.edit', $locataire?->id) }}" class="mx-1 text-secondary"> <i class="fa fa-pencil"></i> </a>
+                                <a href="#" class="mx-1 text-danger" onclick="event.preventDefault(); if(confirm('Voulez-vous vraiment supprimer cette propriété ?')) { document.getElementById('delete-form-{{ $locataire->id }}').submit(); }">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                
+                                <form id="delete-form-{{ $locataire->id }}" action="{{ route('locataires.destroy', $locataire->id) }}" method="POST" style="display: none;">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
+
                             </td>
 
                         </tr>

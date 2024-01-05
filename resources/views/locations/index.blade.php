@@ -18,15 +18,15 @@
                 <thead>
                     <tr>
                         
-						<th> User_id </th>
-						<th> Property_id </th>
-						<th> Locataire_id </th>
-						<th> Bail_type_id </th>
+						<th> Utilisateur</th>
+						<th> proprieté </th>
+						<th> Le locataire</th>
+						<th> Type de bail </th>
 						<th> Loyer </th>
 						<th> Charges </th>
 						<th> Preavis </th>
-						<th> Date_signature_bail </th>
-						<th> Date_entree </th>
+						<th> Date de signature du bail </th>
+						<th> Date d'entrée </th>
                         <th> Action </th>
                     </tr>
                 </thead>
@@ -46,9 +46,26 @@
 							<td> {{ $location->date_entree }} </td>
 
                             <td>
-                                <a href="#" class="mx-1 text-primary"> <i class="fa fa-eye"></i> </a>
                                 <a href="{{ route('locations.edit', $location?->id) }}" class="mx-1 text-secondary"> <i class="fa fa-pencil"></i> </a>
-                                <a href="#" class="mx-1 text-danger"> <i class="fa fa-trash"></i> </a>
+                                <a href="#" class="mx-1 text-danger" onclick="event.preventDefault(); if(confirm('Voulez-vous vraiment supprimer cette propriété ?')) { document.getElementById('delete-form-{{ $location->id }}').submit(); }">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                
+                                <form id="delete-form-{{ $location->id }}" action="{{ route('locations.destroy', $location->id) }}" method="POST" style="display: none;">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+                                </form>
+
                             </td>
 
                         </tr>

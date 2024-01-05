@@ -1,10 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InscriptionController;
-use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,3 +73,9 @@ Route::get('/test-email', function () {
 
     return 'Email sent successfully!';
 });
+// routes/web.php
+
+
+use App\Http\Controllers\AccessCardController;
+
+Route::post('/save-card/{uid}', [AccessCardController::class, 'storeCard']);

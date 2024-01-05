@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Models\Property; // Assurez-vous d'importer le modèle Property
 
 class PropertyController extends Controller
@@ -64,11 +65,16 @@ class PropertyController extends Controller
 
     public function destroy($id)
     {
-        $property = Property::findOrFail($id);  // Récupère la propriété par son ID
-
-        $property->delete();
-
+        try {
+            $property = Property::findOrFail($id);  // Récupère la propriété par son ID
+            $property->delete();
+            return redirect()->route('propertys.index')->with('success', 'Property deleted successfully!');
+        } catch (\Exception $e) {
+            Log::error('Error deleting property', ['error' => $e->getMessage()]);
+            return redirect()->route('propertys.index')->with('error', 'Error deleting property.');
+        }
     }
+    
     public function show($id)
 {
     $property = Property::findOrFail($id);  // Récupère la propriété par son ID

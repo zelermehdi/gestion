@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\LocataireController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,12 @@ Route::resource('locations', LocationController::class);//->middleware(['auth', 
 Route::resource('propertys', propertyController::class);//->middleware(['auth', 'verified'])
 Route::resource('bailtypes', BailTypeController::class);//->middleware(['auth', 'verified'])
 Route::patch('/propertys/{property}', [PropertyController::class, 'update'])->name('propertys.update');
+Route::get('/locations/{id}/edit', [LocationController::class, 'edit'])->name('locations.edit');
+Route::patch('/locataires/{locataire}', [LocataireController::class, 'update'])->name('locataires.update');
+Route::get('/locataires/{id}/edit', [LocataireController::class,'show'])->name('locataires.edit');
+Route::delete('/locataires/{id}', [LocataireController::class, 'destroy'])->name('locataires.destroy');
+
+
+
+
+

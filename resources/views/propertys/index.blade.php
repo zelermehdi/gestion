@@ -4,10 +4,10 @@
 
 <div class="card">
     <div class="card-header justify-content-between">
-        <h3 class="card-title"> propertys Liste </h3>
+        <h3 class="card-title"> Liste des propriétés </h3>
         <div class="float-end">
             <a href="{{ route("propertys.create") }}" class="btn btn-primary">
-                <i class="fa fa-plus" aria-hidden="true"></i> Create property
+                <i class="fa fa-plus" aria-hidden="true"></i> creation d'une propriété </a>
             </a>
         </div>
     </div>
@@ -47,15 +47,23 @@
                            
 
                             <td>
-                                <a href="#" class="mx-1 text-primary"> <i class="fa fa-eye"></i> </a>
                                 <a href="{{ route('propertys.update', $property?->id) }}" class="mx-1 text-secondary"> <i class="fa fa-pencil"></i> </a>
-                                <a href="#" class="mx-1 text-danger"> <i class="fa fa-trash"></i> </a>
+                                <a href="#" class="mx-1 text-danger" onclick="event.preventDefault(); if(confirm('Voulez-vous vraiment supprimer cette propriété ?')) { document.getElementById('delete-form-{{ $property->id }}').submit(); }">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                
+                                <form id="delete-form-{{ $property->id }}" action="{{ route('propertys.destroy', $property->id) }}" method="POST" style="display: none;">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
+
+
                             </td>
 
                         </tr>
                     @empty
                         <tr class="text-center">
-                            <td colspan="-3"> No Data </td>
+                            <td colspan="-3"> aucune proprieté </td>
                         </tr>
                     @endforelse
                 </tbody>
