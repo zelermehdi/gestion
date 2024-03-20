@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-header justify-content-between">
-        <h3 class="card-title"> Locations Liste </h3>
+        <h3 class="card-title"> Locations Liste  </h3>
         <div class="float-end">
             <a href="{{ route("locations.create") }}" class="btn btn-primary">
                 <i class="fa fa-plus" aria-hidden="true"></i> Create Location

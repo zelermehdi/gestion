@@ -31,6 +31,14 @@ class AccessCardController extends Controller
 
         return response()->json(['uid' => $uid]);
     }
+    public function writeUID(Request $request, $uid)
+{
+    // Exécutez le script Python pour écrire l'UID sur la carte
+    $output = shell_exec("python3 /chemin/vers/votre/script.py write {$uid}");
+    // Gérer la réponse et les erreurs
+
+    return response()->json(['message' => 'UID written to card']);
+}
 }
 
 

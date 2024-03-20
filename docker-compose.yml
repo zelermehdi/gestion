@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: gestion-bail-web
+    ports:
+      - "8080:80"
+    # Commentez cette partie pendant le dépannage
+    # volumes:
+    #   - ./www/gestion-bail:/var/www/html
+    networks:
+      - gestion-bail-network
+
+networks:
+  gestion-bail-network:
+    driver: bridge
