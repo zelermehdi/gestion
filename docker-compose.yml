@@ -6,12 +6,27 @@ services:
     container_name: gestion-bail-web
     ports:
       - "8080:80"
-    # Commentez cette partie pendant le dépannage
-    # volumes:
-    #   - ./www/gestion-bail:/var/www/html
+    volumes:
+      - .:/var/www
+    networks:
+      - gestion-bail-network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    container_name: gestion-bail-db
+    environment:
+      MYSQL_DATABASE: bail
+      MYSQL_ROOT_PASSWORD: myrootpassword
+    volumes:
+      - db_data:/var/lib/mysql
     networks:
       - gestion-bail-network
 
 networks:
   gestion-bail-network:
     driver: bridge
+
+volumes:
+  db_data:

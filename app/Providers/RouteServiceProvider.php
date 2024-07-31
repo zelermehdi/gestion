@@ -22,7 +22,7 @@ public const HOME_SUCCESS = '/inscription-confirmee';
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+ 
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
