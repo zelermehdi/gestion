@@ -79,3 +79,4 @@ Route::get('/test-email', function () {
 use App\Http\Controllers\AccessCardController;
 
 Route::post('/save-card/{uid}', [AccessCardController::class, 'storeCard']);
+// test
